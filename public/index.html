@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <label class="load-label noselect" for="runButton" tabindex="0">
+        <!-- http://www.iana.org/assignments/media-types/media-types.xhtml -->
+        <input
+          class="load-input"
+          id="runButton"
+          type="file"
+          accept=".xml,.musicxml"
+          name="runButton"
+        />
+        Load XML File
+      </label>
+      <br />
+      <div id="output-container"></div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

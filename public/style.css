@@ -1,0 +1,71 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: x-large;
+}
+
+.main-container {
+  /*top right bottom left*/
+  margin: 20px 50px 0 50px;
+}
+
+.load-label {
+  cursor: pointer;
+  padding: 5px;
+
+  text-align: center;
+
+  display: block;
+  /* position: fixed; */
+  height: 1.25em;
+  width: 10em;
+
+  /* left: 50%; */
+  /* top: 50%; */
+  /* transform: translate(-50%, -50%); */
+
+  outline: none;
+  color: black;
+  background-color: #ccc;
+  background-size: 100% 100%;
+  border-radius: 5px;
+  border: 1px solid #333;
+  transition: 0.2s;
+}
+
+.load-label:hover,
+.load-label:focus {
+  border: 1px solid #055633;
+  background-color: #17ad6c;
+  box-shadow: 0 4px 8px -1px #0003;
+}
+
+.load-label:focus:active {
+  border: 1px solid #444;
+  background-color: #0c7f4d;
+  transition: 0.1s;
+  box-shadow: inset 0 1px 3px 0px #0006;
+}
+
+.load-label input[type="file"] {
+  display: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.part-tag {
+  color: #00000080;
+}
+
+.part-code {
+  font-family: monospace;
+  background-color: #ccc;
+}
