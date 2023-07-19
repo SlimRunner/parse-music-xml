@@ -1,0 +1,11 @@
+{
+  "name": "parse-music-xml",
+  "version": "0.0.1",
+  "description": "parses an musicxml from musescore to plain arrays of rhythms, pitches, and rests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
