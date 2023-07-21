@@ -1,4 +1,4 @@
-# parse-music-xml
+# How to use
 
 To run install node js, clone this project, and run `npm install`.
 
