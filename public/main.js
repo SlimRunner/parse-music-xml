@@ -199,9 +199,19 @@
     window.csvArray = csvArray;
   }
 
-  function parseCSV(csvArray) {
+  function parseCSV(csvArray, forDesmos = false) {
     const song = csvArray.map((note, i) => {
-      let [, letter, accidental, octave] = note.pitch.match(/(\w)([\#b]?)(\d)/);
+      let [, num, denom] = note.duration.match(/(\d+)\/(\d+)/);
+      const duration = (128 * Number(num)) / Number(denom);
+
+      if (!note.isPitch) {
+        return {
+          pitch: "0",
+          duration: duration,
+          isPitch: note.isPitch,
+        }
+      }
+      let [, letter, accidental, octave] = note.pitch.match(/(\w)([\#b]?)(\d)/) ?? [, "C", "", "4"];
       const pitch =
         {
           C: -9,
@@ -214,9 +224,6 @@
         }[letter] +
         (Number(octave) - 4) * 12 +
         { "#": 1, b: -1, "": 0 }[accidental];
-
-      let [, num, denom] = note.duration.match(/(\d+)\/(\d+)/);
-      const duration = (128 * Number(num)) / Number(denom);
 
       return {
         pitch: pitch,
@@ -261,7 +268,7 @@
       );
     });
 
-    const pitchText = song.map((p) => p.pitch);
+    const pitchText = song.map((p) => (!forDesmos || p.isPitch? p.pitch: "R"));
     const durationText = song.map((p) => p.duration);
     const isPitchText = song.map((p) => (p.isPitch ? 1 : 0));
     // container.insertBefore(createNodeWithText("p", `pitches: [${pitchText.join(", ")}]`), null);
