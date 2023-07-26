@@ -199,14 +199,14 @@
     window.csvArray = csvArray;
   }
 
-  function parseCSV(csvArray, forDesmos = false) {
+  function parseCSV(csvArray, forDesmos = false, baseInterval = 128) {
     const song = csvArray.map((note, i) => {
       let [, num, denom] = note.duration.match(/(\d+)\/(\d+)/);
-      const duration = (128 * Number(num)) / Number(denom);
+      const duration = (baseInterval * Number(num)) / Number(denom);
 
       if (!note.isPitch) {
         return {
-          pitch: "0",
+          pitch: 0,
           duration: duration,
           isPitch: note.isPitch,
         }
